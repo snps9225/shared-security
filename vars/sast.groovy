@@ -3,13 +3,13 @@
 package vars
 
 
-def call(String name, String sastHigh, String sastMedium, String cxCred, String language) {
+def call(String projectName, String sastHigh, String sastMedium, String cxCred, String language) {
     stage("Static Analysis: Checkmarx") {
-        String project = name
+        String project = projectName
 	project = project.replace('\\','\\\\')
         String SASTHigh = sastHigh ?: '5'
 	String SASTMedium = sastMedium ?: '5'
-        //String CxServer = cxServer ?: 'URL'
+        String CxServer = "https://checkmarx.corp.n-able.com/"
         //String userPreset = userPreset ?: 'High and Medium'
         String creds = cxCred
 	String lang = language
