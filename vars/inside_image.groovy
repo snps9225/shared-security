@@ -28,13 +28,10 @@ def call(String registry, String repository, String image, String creds, Closure
   def docker_args = config.images.docker_args ?:
                     { return ""}()
   */
-  String repo = repository
-  String img = image
-  //sh 'echo \"${repo}\${img}\"'
   
   docker.withRegistry(registry, creds){
     sh 'echo \"inside with registry\"'
-    docker.image("${repo}/${img}").inside(""){
+    docker.image("${repository}/${image}").inside(""){
       body()
     }
   }
