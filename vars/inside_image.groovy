@@ -30,6 +30,7 @@ def call(String registry, String repository, String image, String creds, Closure
   */
   
   docker.withRegistry(registry, creds){
+    echo "inside with registry"
     docker.image(repository/image).inside(""){
       body()
     }
