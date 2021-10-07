@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 
+
 def call(String name, String sastHigh, String sastMedium, String cxCred, String language) {
     stage("Static Analysis: Checkmarx") {
         String project = name
@@ -13,7 +14,7 @@ def call(String name, String sastHigh, String sastMedium, String cxCred, String 
         String preset = lang + " - High and Medium" //+ userPreset
 	String script = ""
 
-        inside_sdp_image "checkmarx:openjdk-8", {
+        inside_image "https://registry.hub.docker.com","karnc","checkmarx:openjdk-8","docker-creds" {
          	 	
 		dir("${WORKSPACE}")
 			{
