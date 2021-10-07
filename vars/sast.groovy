@@ -1,8 +1,9 @@
 #!/usr/bin/env groovy
 
-def call() {
+def call(String name) {
     stage("Static Analysis: Checkmarx") {
-        String project = ${env.ProjectName}
+        //String project = ${env.ProjectName}
+	    String project = name
 		    project = project.replace('\\','\\\\')
         String SASTHigh = ${env.SASTHigh} ?: '5'
 		    String SASTMedium = ${env.SASTMedium} ?: '5'
