@@ -9,7 +9,7 @@ def call(String projectName, String sastHigh, String sastMedium, String cxCred, 
 	project = project.replace('\\','\\\\')
         String SASTHigh = sastHigh ?: '5'
 	String SASTMedium = sastMedium ?: '5'
-        String CxServer = "https://192.69.16.204"
+        String CxServer = "https://checkmarx.corp.n-able.com" //"https://192.69.16.204"
         //String userPreset = userPreset ?: 'High and Medium'
         String creds = cxCred
 	String lang = language
