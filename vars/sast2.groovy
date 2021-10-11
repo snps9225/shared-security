@@ -36,8 +36,6 @@ def call(Map config=[:]) {
                                       -CxUser \"\$CHECKMARX_UNAME\" \\
                                       -CxPassword \"\$CHECKMARX_PASS\""""
 					
-					println script
-					println SASTHigh
 				      /*def statusCode = sh (script:script, returnStatus:true)
 
 				      if(statusCode == 0 || statusCode > 5) {
