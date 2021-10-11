@@ -3,7 +3,7 @@
 package vars
 
 
-def call(Map config=[:], Closure body) {
+def call(Map config=[:]) {
     stage("Static Analysis: Checkmarx") {
         String project = config.Project
 	      project = project.replace('\\','\\\\')
@@ -51,5 +51,4 @@ def call(Map config=[:], Closure body) {
 	}
 	}
     }
-  body()
 }
