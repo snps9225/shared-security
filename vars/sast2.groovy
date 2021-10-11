@@ -24,7 +24,7 @@ def call(Map config=[:]) {
                           	]) {
 				script = """/opt/CxConsolePlugin/runCxConsole.sh scan -v \
                                       -ProjectName \"$project\" \\
-                                      -CxServer \"CxServer\" \\
+                                      -CxServer \"$CxServer\" \\
                                       -LocationType \"folder\" \\
                                       -SASTHigh \"$SASTHigh\" \\
                                       -SASTMedium \"$SASTMedium\" \\
