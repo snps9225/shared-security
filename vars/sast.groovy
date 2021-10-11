@@ -10,12 +10,13 @@ def call(String projectName, String sastHigh, String sastMedium, String cxCred, 
         String SASTHigh = sastHigh ?: '5'
 	String SASTMedium = sastMedium ?: '5'
         String CxServer = "https://checkmarx.corp.n-able.com" //"https://192.69.16.204"
-        //String userPreset = userPreset ?: 'High and Medium'
+        String userPreset = userPreset ?: 'High and Medium'
         String creds = cxCred
 	String lang = language
-        String preset = lang + " - High and Medium" //+ userPreset
+        String preset = lang + " - " + userPreset //" - High and Medium" 
 	String script = ""
 
+	println "OOO Preset is: " + preset
         inside_image "https://registry.hub.docker.com","karnc","checkmarx:openjdk-8","docker-creds", {
          	 	
 		dir("${WORKSPACE}")
@@ -39,15 +40,15 @@ def call(String projectName, String sastHigh, String sastMedium, String cxCred, 
                                     -CxUser \"\$CHECKMARX_UNAME\" \\
                                     -CxPassword \"\$CHECKMARX_PASS\""""
                             
-                            def statusCode = sh (script:script, returnStatus:true)
+                            //def statusCode = sh (script:script, returnStatus:true)
 						
                             if(statusCode == 0 || statusCode > 5) {
                                 sh "cp /opt/CxConsolePlugin/Checkmarx/Reports/cx_output.xml ${WORKSPACE}"
                                 archiveArtifacts artifacts: "cx_output.xml"
                             }
-					    }
-                }
 			}
-		}
+                }
+	}
+	}
     }
 }
