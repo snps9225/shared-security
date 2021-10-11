@@ -6,7 +6,8 @@ package vars
 def call(Map config=[:]) {
     stage("Static Analysis: Checkmarx") {
         String project = config.Project
-     	project = project.replace('\\','\\\\')
+     	//project = project.replace('\\','\\\\')
+	project = project.replace('//','////')    
         String SASTHigh = config.High ?: '5'
       	String SASTMedium = config.Medium ?: '5'
         String CxServer = "https://checkmarx.corp.n-able.com" //"https://192.69.16.204"
