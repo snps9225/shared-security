@@ -36,12 +36,12 @@ def call(Map config=[:]) {
                                       -CxUser \"\$CHECKMARX_UNAME\" \\
                                       -CxPassword \"\$CHECKMARX_PASS\""""
 					
-				      /*def statusCode = sh (script:script, returnStatus:true)
+				      def statusCode = sh (script:script, returnStatus:true)
 
 				      if(statusCode == 0 || statusCode > 5) {
 					  sh "cp /opt/CxConsolePlugin/Checkmarx/Reports/cx_output.xml ${WORKSPACE}"
 					  archiveArtifacts artifacts: "cx_output.xml"
-				      }*/
+				      }
         			}
                  	}
 		}
