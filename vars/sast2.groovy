@@ -13,11 +13,10 @@ def call(Map config=[:]) {
         String userPreset = config.Preset ?: 'High and Medium'
         String creds = config.CxCred
       	String lang = config.Language
-        String preset = lang + " - " + userPreset //" - High and Medium" 
+        String preset = lang + " - " + userPreset
       	String script = ""
 
-        inside_image "https://registry.hub.docker.com","karnc","checkmarx:openjdk-8","docker-creds", {
-         	 	
+        inside_image "https://registry.hub.docker.com","karnc","checkmarx:openjdk-8","docker-creds", {  	 	
         dir("${WORKSPACE}") {
 		withChecks('SAST Scan') {
 			withCredentials([
@@ -36,7 +35,9 @@ def call(Map config=[:]) {
                                       -Incremental \\
                                       -CxUser \"\$CHECKMARX_UNAME\" \\
                                       -CxPassword \"\$CHECKMARX_PASS\""""
-
+					
+					println script
+					println SASTHigh
 				      /*def statusCode = sh (script:script, returnStatus:true)
 
 				      if(statusCode == 0 || statusCode > 5) {
