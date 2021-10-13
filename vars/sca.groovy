@@ -9,7 +9,7 @@ def call(Map config=[:]) {
       //String configs 	= ""
       String ApiKey 	= "Api-Key"
       String UserKey 	= config.UserKey
-      String WssUrl 	= "https://app.whitesourcesoftware.com/agent"
+      String WssUrl 	= "https://app.whitesourcesoftware.com/api/v1.3" //"https://app.whitesourcesoftware.com/agent"
       String script 	= ""
       
       script = 'java -jar /opt/wss-unified-agent.jar'
